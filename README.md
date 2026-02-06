@@ -105,7 +105,7 @@
         position: absolute;
         bottom: 15px;
         width: 100%;
-        font-size: 16px;
+        font-size: 30px;
         color: #dd2d4a;
         min-height: 24px;
     }
