@@ -144,7 +144,12 @@
 </div>
 
 <div class="card hidden congrats" id="congratsCard">
-    <img src="/mnt/data/ffd82253-7694-45e6-910c-d4a99841ee89.png" alt="Michael Scott Dancing" />
+   <img
+  class="gif"
+  src="[https://github.com/user-attachments/assets/1f43b9bd-9c9c-41e1-b346-30de233e5ff8](https://github.com/user-attachments/assets/abe7e070-9637-4f86-bfde-50c4d6adb225)"
+  alt="Celebration GIF"
+  decoding="async"
+/>
     <h1>YAY I KNEW IT 💖</h1>
     <h2>Happy Valentine my love</h2>
 </div>
