@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -39,8 +38,8 @@
 
     /* UPDATED GIF SIZE */
     .gif {
-        width: 300px;
-        height: 300px;
+        width: 400px;
+        height: 400px;
         object-fit: contain;
         margin-bottom: 15px;
     }
@@ -52,7 +51,8 @@
 
     .buttons {
         position: relative;
-        height: 120px;
+        height: 140px;
+        overflow: hidden;;
     }
 
     .btn {
@@ -77,7 +77,7 @@
 
     #yesBtn:hover {
         animation: heartbeat 0.6s infinite;
-        transform: scale(3);
+        transform: scale(2);
         clip-path: path(
             "M60 20 
              C60 0, 0 0, 0 30 
@@ -160,8 +160,7 @@
 <script>
     const noBtn = document.getElementById("noBtn");
     const messageBox = document.getElementById("message");
-    const card = document.querySelector(".card");
-    const yesBtn = document.getElementById("yesBtn");
+    const container = document.querySelector(".buttons");    const yesBtn = document.getElementById("yesBtn");
     const mainCard = document.getElementById("mainCard");
     const congratsCard = document.getElementById("congratsCard");
 
@@ -187,22 +186,20 @@
     let lastPosition = { x: 0, y: 0 };
 
     noBtn.addEventListener("mouseenter", () => {
-        const cardRect = card.getBoundingClientRect();
-        const btnRect = noBtn.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
+    const btnRect = noBtn.getBoundingClientRect();
 
-        let x, y;
-        do {
-            x = Math.random() * (cardRect.width - btnRect.width);
-            y = Math.random() * (cardRect.height - btnRect.height - 80) + 80;
-        } while (x === lastPosition.x && y === lastPosition.y);
+    const maxX = containerRect.width - btnRect.width;
+    const maxY = containerRect.height - btnRect.height;
 
-        lastPosition = { x, y };
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
 
-        noBtn.style.left = `${x}px`;
-        noBtn.style.top = `${y}px`;
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
 
-        messageBox.textContent =
-          messages[Math.floor(Math.random() * messages.length)];
+    messageBox.textContent =
+        messages[Math.floor(Math.random() * messages.length)];
     });
 
     yesBtn.addEventListener("click", () => {
