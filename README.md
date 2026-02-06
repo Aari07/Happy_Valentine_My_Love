@@ -144,11 +144,10 @@
 </div>
 
 <div class="card hidden congrats" id="congratsCard">
-   <img
-  class="gif"
-  src="[https://github.com/user-attachments/assets/1f43b9bd-9c9c-41e1-b346-30de233e5ff8](https://github.com/user-attachments/assets/abe7e070-9637-4f86-bfde-50c4d6adb225)"
-  alt="Celebration GIF"
-  decoding="async"
+   <link
+  rel="preload"
+  as="image"
+  href="https://github.com/user-attachments/assets/abe7e070-9637-4f86-bfde-50c4d6adb225"
 />
     <h1>YAY I KNEW IT 💖</h1>
     <h2>Happy Valentine my love</h2>
