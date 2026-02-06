@@ -190,7 +190,7 @@
     const btnRect = noBtn.getBoundingClientRect();
 
     // Account for card padding (20px)
-    const padding = 20;
+    const padding = 10;
 
     const maxX = cardRect.width - btnRect.width - padding;
     const maxY = cardRect.height - btnRect.height - padding;
