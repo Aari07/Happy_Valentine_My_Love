@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<link
+  rel="preload"
+  as="image"
+  href="https://github.com/user-attachments/assets/1f43b9bd-9c9c-41e1-b346-30de233e5ff8"
+/>
+   <meta charset="UTF-8" />
 <title>Valentine Proposal</title>
 
 <style>
@@ -120,10 +125,20 @@
 </head>
 
 <body>
-
+.gif {
+    width: 220px;      /* increased from 120px */
+    max-width: 40%;
+    height: auto;
+    margin-bottom: 15px;
+}
 <div class="card" id="mainCard">
-<img class="gif" src="https://github.com/user-attachments/assets/1f43b9bd-9c9c-41e1-b346-30de233e5ff8" alt="Teddy GIF" />
-    <h2>Nonu, will you be my valentine?</h2>
+<img
+  class="gif"
+  src="https://github.com/user-attachments/assets/1f43b9bd-9c9c-41e1-b346-30de233e5ff8"
+  alt="Teddy GIF"
+  decoding="async"
+/>
+   <h2>Nonu, will you be my valentine?</h2>
 
     <div class="buttons">
         <button id="yesBtn" class="btn">Yes</button>
