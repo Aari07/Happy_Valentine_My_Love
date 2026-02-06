@@ -122,7 +122,7 @@
 <body>
 
 <div class="card" id="mainCard">
-    <img class="gif" src="![Image](https://github.com/user-attachments/assets/1f43b9bd-9c9c-41e1-b346-30de233e5ff8)" alt="Teddy GIF" />
+<img class="gif" src="https://github.com/user-attachments/assets/1f43b9bd-9c9c-41e1-b346-30de233e5ff8" alt="Teddy GIF" />
     <h2>Nonu, will you be my valentine?</h2>
 
     <div class="buttons">
