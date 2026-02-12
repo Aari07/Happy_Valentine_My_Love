@@ -135,7 +135,7 @@ body {
 
 <div class="card hidden congrats" id="congratsCard">
     <img class="gif"
-    src="https://github.com/user-attachments/assets/abe7e070-9637-4f86-bfde-50c4d6adb225"
+    src="https://github.com/user-attachments/assets/898a70cd-1bfb-41f4-8abc-d4a1784bb795"
     alt="Celebration GIF"/>
 
     <h1>YAY I KNEW IT 💖</h1>
