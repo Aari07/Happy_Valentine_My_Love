@@ -1,191 +1,165 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Valentine Proposal</title>
+<meta charset="UTF-8" />
+<title>Happy Valentine My Love !! Proposal</title>
 
-  <!-- Preload GIFs -->
-  <link rel="preload" as="image"
-        href="https://github.com/user-attachments/assets/1f43b9bd-9c9c-41e1-b346-30de233e5ff8" />
+<style>
+* {
+    box-sizing: border-box;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
 
-  <link rel="preload" as="image"
-        href="https://github.com/user-attachments/assets/abe7e070-9637-4f86-bfde-50c4d6adb225" />
+body {
+    margin: 0;
+    background-color: #f49cbb;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
 
-  <style>
-    * {
-        box-sizing: border-box;
-        font-family: "Comic Sans MS", cursive, sans-serif;
-    }
+.card {
+    width: 60vw;
+    height: 60vh;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
 
-    body {
-        margin: 0;
-        background-color: #f49cbb;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.gif {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
 
-    .card {
-        width: 60vw;
-        height: 60vh;
-        background: #ffffff;
-        border-radius: 20px;
-        padding: 20px;
-        position: relative;
-        text-align: center;
-        overflow: hidden;
-    }
+.buttons {
+    position: relative;
+    height: 140px;
+    overflow: hidden;
+}
 
-    /* UPDATED GIF SIZE */
-    .gif {
-        width: 400px;
-        height: 400px;
-        object-fit: contain;
-        margin-bottom: 15px;
-    }
+.btn {
+    width: 120px;
+    height: 60px;
+    border-radius: 999px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    transition: 0.2s ease;
+}
 
-    h2 {
-        margin: 10px 0 30px;
-        color: #333;
-    }
+#yesBtn {
+    background: #dd2d4a;
+    color: white;
+    left: 25%;
+    top: 30px;
+    z-index: 2;
+}
 
-    .buttons {
-        position: relative;
-        height: 140px;
-        overflow: hidden;;
-    }
+#yesBtn:hover {
+    animation: heartbeat 0.6s infinite;
+    transform: scale(2);
+}
 
-    .btn {
-        width: 120px;
-        height: 60px;
-        border-radius: 999px;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        position: absolute;
-        transition: transform 0.3s ease;
-    }
+@keyframes heartbeat {
+    0% { transform: scale(2); }
+    50% { transform: scale(2.2); }
+    100% { transform: scale(2); }
+}
 
-    /* YES BUTTON */
-    #yesBtn {
-        background: #dd2d4a;
-        color: white;
-        left: 25%;
-        top: 30px;
-        z-index: 2;
-    }
+#noBtn {
+    background: #cbeef3;
+    color: #333;
+    left: 55%;
+    top: 30px;
+}
 
-    #yesBtn:hover {
-        animation: heartbeat 0.6s infinite;
-        transform: scale(2);
-        clip-path: path(
-            "M60 20 
-             C60 0, 0 0, 0 30 
-             C0 55, 30 75, 60 95 
-             C90 75, 120 55, 120 30 
-             C120 0, 60 0, 60 20 Z"
-        );
-    }
+.message {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    font-size: 22px;
+    color: #dd2d4a;
+}
 
-    @keyframes heartbeat {
-        0% { transform: scale(3); }
-        50% { transform: scale(3.2); }
-        100% { transform: scale(3); }
-    }
+.hidden { display: none; }
 
-    /* NO BUTTON */
-    #noBtn {
-        background: #cbeef3;
-        color: #333;
-        left: 55%;
-        top: 30px;
-    }
+.congrats h1 { color: #dd2d4a; }
 
-    .message {
-        position: absolute;
-        bottom: 15px;
-        width: 100%;
-        font-size: 30px;
-        color: #dd2d4a;
-        min-height: 24px;
-    }
+.playAgain {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: #dd2d4a;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 18px;
+}
 
-    /* CONGRATS PAGE */
-    .hidden {
-        display: none;
-    }
-
-    .congrats {
-        text-align: center;
-    }
-
-    .congrats h1 {
-        color: #dd2d4a;
-    }
-  </style>
+/* CONFETTI CANVAS */
+#confettiCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+</style>
 </head>
 
 <body>
 
+<canvas id="confettiCanvas"></canvas>
+
 <div class="card" id="mainCard">
-  <img
-    class="gif"
+    <img class="gif"
     src="https://github.com/user-attachments/assets/1f43b9bd-9c9c-41e1-b346-30de233e5ff8"
-    alt="Teddy GIF"
-    decoding="async"
-  />
+    alt="Teddy GIF"/>
 
-  <h2>Nonu, will you be my valentine?</h2>
+    <h2>Nonu, will you be my valentine?</h2>
 
-  <div class="buttons">
-      <button id="yesBtn" class="btn">Yes</button>
-      <button id="noBtn" class="btn">No</button>
-  </div>
+    <div class="buttons">
+        <button id="yesBtn" class="btn">Yes</button>
+        <button id="noBtn" class="btn">No</button>
+    </div>
 
-  <div class="message" id="message"></div>
+    <div class="message" id="message"></div>
 </div>
 
 <div class="card hidden congrats" id="congratsCard">
-  <img
-    class="gif"
+    <img class="gif"
     src="https://github.com/user-attachments/assets/abe7e070-9637-4f86-bfde-50c4d6adb225"
-    alt="Celebration GIF"
-    decoding="async"
-  />
+    alt="Celebration GIF"/>
 
-  <h1>YAY I KNEW IT 💖</h1>
-  <h2>Happy Valentine my love</h2>
+    <h1>YAY I KNEW IT 💖</h1>
+    <h2>Happy Valentine my love</h2>
+
+    <button class="playAgain" id="playAgainBtn">Play Again</button>
 </div>
 
 <script>
-    const noBtn = document.getElementById("noBtn");
-    const messageBox = document.getElementById("message");
-    const container = document.querySelector(".buttons");    const yesBtn = document.getElementById("yesBtn");
-    const mainCard = document.getElementById("mainCard");
-    const congratsCard = document.getElementById("congratsCard");
+const noBtn = document.getElementById("noBtn");
+const messageBox = document.getElementById("message");
+const container = document.querySelector(".buttons");
+const yesBtn = document.getElementById("yesBtn");
+const mainCard = document.getElementById("mainCard");
+const congratsCard = document.getElementById("congratsCard");
+const playAgainBtn = document.getElementById("playAgainBtn");
 
-    const messages = [
-        "Don’t press it 😒","I don’t like no","Wrong choice buddy",
-        "That button is broken","You know what to press","No is illegal here",
-        "Try again 😏","Seriously?","That hurts","Please press yes",
-        "I’m judging you","You’re better than this","Think again",
-        "Heart says yes","Brain says yes","Universe says yes",
-        "Why no though?","That’s suspicious","You missed the point",
-        "Almost romantic… almost","Come on now","You’re teasing me",
-        "Stop resisting","Destiny says yes","Be brave",
-        "This is getting awkward","You KNOW the answer","I believe in you",
-        "Don’t fight love","Say yes already","Not cool","Try hovering yes",
-        "That’s rude","Plot twist: yes","Nope is not allowed",
-        "Nice try","Emotional damage","You’re testing me","Love > No",
-        "Just press yes","This button lies","Wrong universe",
-        "Error 404: No not found","Stop clicking me","Okay now yes",
-        "This is fate","Final warning","Why are you like this?",
-        "I’m running out of patience","Last chance 😤"
-    ];
+const messages = [
+"Don’t press it 😒","I don’t like no","Wrong choice buddy",
+"That button is broken","You know what to press","No is illegal here",
+"Try again 😏","Seriously?","That hurts","Please press yes"
+];
 
-    let lastPosition = { x: 0, y: 0 };
-
-    noBtn.addEventListener("mouseenter", () => {
+noBtn.addEventListener("mouseenter", () => {
     const containerRect = container.getBoundingClientRect();
     const btnRect = noBtn.getBoundingClientRect();
 
@@ -200,12 +174,85 @@
 
     messageBox.textContent =
         messages[Math.floor(Math.random() * messages.length)];
-    });
+});
 
-    yesBtn.addEventListener("click", () => {
-        mainCard.classList.add("hidden");
-        congratsCard.classList.remove("hidden");
+yesBtn.addEventListener("click", () => {
+    mainCard.classList.add("hidden");
+    congratsCard.classList.remove("hidden");
+    startConfetti();
+});
+
+playAgainBtn.addEventListener("click", () => {
+    congratsCard.classList.add("hidden");
+    mainCard.classList.remove("hidden");
+    messageBox.textContent = "";
+    noBtn.style.left = "55%";
+    noBtn.style.top = "30px";
+    stopConfetti();
+});
+
+/* CONFETTI LOGIC */
+const canvas = document.getElementById("confettiCanvas");
+const ctx = canvas.getContext("2d");
+let confettiParticles = [];
+let animationId;
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+function createConfetti() {
+    for (let i = 0; i < 150; i++) {
+        confettiParticles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height - canvas.height,
+            r: Math.random() * 6 + 4,
+            d: Math.random() * 50,
+            color: `hsl(${Math.random()*360},100%,50%)`,
+            tilt: Math.random() * 10 - 10
+        });
+    }
+}
+
+function drawConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confettiParticles.forEach(p => {
+        ctx.beginPath();
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x, p.y, p.r, p.r);
     });
+    updateConfetti();
+}
+
+function updateConfetti() {
+    confettiParticles.forEach(p => {
+        p.y += Math.cos(p.d) + 2;
+        p.x += Math.sin(p.d);
+        if (p.y > canvas.height) {
+            p.y = -10;
+            p.x = Math.random() * canvas.width;
+        }
+    });
+}
+
+function startConfetti() {
+    confettiParticles = [];
+    createConfetti();
+    animateConfetti();
+}
+
+function animateConfetti() {
+    drawConfetti();
+    animationId = requestAnimationFrame(animateConfetti);
+}
+
+function stopConfetti() {
+    cancelAnimationFrame(animationId);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
 </script>
 
 </body>
